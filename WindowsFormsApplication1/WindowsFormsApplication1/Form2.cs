@@ -29,6 +29,7 @@ namespace WindowsFormsApplication1
         public int pom6;
         public int pom7;
         public string pom;
+        public string pompom;
         public string res2;
         public int ibr;
         public int vbr;
@@ -49,25 +50,31 @@ namespace WindowsFormsApplication1
         {
             if (button18.Enabled == true)
             {
-                for (int j = 1; j <= textBox2.Text.Length; j++)
+                if (textBox2.Text == "") textBox2.Text = textBox2.Text + i;
+                pom = Convert.ToString(Convert.ToInt32(textBox2.Text) % 10);
+                if (pom == "I")
                 {
-                    if ((textBox2.Text.Length % 10) == 0) textBox2.Text = textBox2.Text + i;
-                    else if ((textBox2.Text.Length % 10) > ibr) textBox2.Text = textBox2.Text + i;
-                    else if (pom1 <= 3)
-                    {
-                        textBox2.Text = textBox2.Text + i;
-                    }
+                    if (pom1 <= 3) textBox2.Text = textBox2.Text + i;
                 }
+                else if (pom != "I") textBox2.Text = textBox2.Text + i;
             }
             else
             {
-                for (int j = 1; j <= textBox1.Text.Length; j++)
+                if (textBox1.Text == "") textBox1.Text = textBox1.Text + i;
+                else
                 {
-                    if ((textBox2.Text.Length % 10) == 0) textBox1.Text = textBox1.Text + i;
-                    else if ((textBox1.Text.Length % 10) > ibr) textBox1.Text = textBox1.Text + i;
-                    else if (pom1 <= 3)
+                    if (textBox1.Text.Last() == 'I')
                     {
-                        textBox1.Text = textBox1.Text + i;
+                        if (pom1 <= 3) textBox1.Text = textBox1.Text + i;
+                    }
+                    else if (textBox1.Text.Last() == 'X') //string sample= "sample"; string lastThree = sample.Substring(sample.Length - 3);
+                    {
+                        pom = textBox1.Text;
+                        pompom = pom.Substring(pom.Length - 2);
+                        if (pompom != "IX")
+                        {
+                            if (pom1 <= 3) textBox1.Text = textBox1.Text + i;
+                        }
                     }
                 }
             }
@@ -76,22 +83,18 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             if (button18.Enabled == true)
             {
-                for (int j = 1; j <= textBox2.Text.Length; j++)
-                {
-                    if ((textBox2.Text.Length % 10) > vbr) textBox2.Text = textBox2.Text + v;
-                    else if (pom1 == 1) textBox2.Text = textBox2.Text + v;
-                }
+                if ((textBox2.Text.Length % 10) > vbr) textBox2.Text = textBox2.Text + v;
+                if (pom2 == 1) textBox2.Text = textBox2.Text + v;
             }
             else
             {
-                for (int j = 1; j <= textBox1.Text.Length; j++)
-                {
-                    if ((textBox1.Text.Length % 10) > vbr) textBox1.Text = textBox1.Text + v;
-                    else if (pom1 == 1) textBox1.Text = textBox1.Text + v;
-                }
+                if ((textBox1.Text.Length % 10) > vbr) textBox1.Text = textBox1.Text + v;
+                if (pom2 == 1) textBox1.Text = textBox1.Text + v;
             }
+            pom2++;
         }
 
         private void button3_Click(object sender, EventArgs e)
