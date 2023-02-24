@@ -21,13 +21,20 @@ namespace WindowsFormsApplication1
         public int br2;
         public int res;
         public int brojac;
-        public int pom1;
-        public int pom2;
-        public int pom3;
-        public int pom4;
-        public int pom5;
-        public int pom6;
-        public int pom7;
+        public int pom1 = 1;
+        public int pom2 = 1;
+        public int pom3 = 1;
+        public int pom4 = 1;
+        public int pom5 = 1;
+        public int pom6 = 1;
+        public int pom7 = 1;
+        public int pom8 = 1;
+        public int pom9 = 1;
+        public int pom10 = 1;
+        public int pom11 = 1;
+        public int pom12 = 1;
+        public int pom13 = 1;
+        public int pom14 = 1;
         public string pom;
         public string pompom;
         public string res2;
@@ -38,113 +45,117 @@ namespace WindowsFormsApplication1
         public int dbr;
         public int cbr;
         public int mbr;
-        public string i;
-        public string v;
-        public string x;
-        public string l;
-        public string c;
-        public string d;
-        public string m;
+        public char i;
+        public char v;
+        public char x;
+        public char l;
+        public char c;
+        public char d;
+        public char m;
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (button18.Enabled == true)
             {
-                if (textBox2.Text == "") textBox2.Text = textBox2.Text + i;
-                pom = Convert.ToString(Convert.ToInt32(textBox2.Text) % 10);
-                if (pom == "I")
-                {
-                    if (pom1 <= 3) textBox2.Text = textBox2.Text + i;
-                }
-                else if (pom != "I") textBox2.Text = textBox2.Text + i;
+                if (pom2 <= 3) textBox2.Text = textBox2.Text + i;
+                pom2++;
             }
             else
             {
-                if (textBox1.Text == "") textBox1.Text = textBox1.Text + i;
-                else
-                {
-                    if (textBox1.Text.Last() == 'I')
-                    {
-                        if (pom1 <= 3) textBox1.Text = textBox1.Text + i;
-                    }
-                    else if (textBox1.Text.Last() == 'X') //string sample= "sample"; string lastThree = sample.Substring(sample.Length - 3);
-                    {
-                        pom = textBox1.Text;
-                        pompom = pom.Substring(pom.Length - 2);
-                        if (pompom != "IX")
-                        {
-                            if (pom1 <= 3) textBox1.Text = textBox1.Text + i;
-                        }
-                    }
-                }
+                if (pom1 <= 3) textBox1.Text = textBox1.Text + i;
+                pom1++;
             }
-            pom1++;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             if (button18.Enabled == true)
             {
-                if ((textBox2.Text.Length % 10) > vbr) textBox2.Text = textBox2.Text + v;
-                if (pom2 == 1) textBox2.Text = textBox2.Text + v;
+                if (pom4 == 1) textBox2.Text = textBox2.Text + v;
+                pom4++;
             }
             else
             {
-                if ((textBox1.Text.Length % 10) > vbr) textBox1.Text = textBox1.Text + v;
-                if (pom2 == 1) textBox1.Text = textBox1.Text + v;
+                if (pom3 == 1) textBox1.Text = textBox1.Text + v;
+                pom3++;
             }
-            pom2++;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (button18.Enabled == true)
             {
-                textBox2.Text = textBox2.Text + x;
+                if (pom6 <= 3) textBox2.Text = textBox2.Text + x;
+                pom6++;
             }
-            else textBox1.Text = textBox1.Text + x;
+            else
+            {
+                if (pom5 <= 3) textBox1.Text = textBox1.Text + x;
+                pom5++;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             if (button18.Enabled == true)
             {
-                textBox2.Text = textBox2.Text + l;
+                if (pom8 == 1) textBox2.Text = textBox2.Text + l;
+                pom8++;
             }
-            else textBox1.Text = textBox1.Text + l;
+            else
+            {
+                if (pom7 == 1) textBox1.Text = textBox1.Text + l;
+                pom7++;
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             if (button18.Enabled == true)
             {
-                textBox2.Text = textBox2.Text + c;
+                if (pom10 <= 3) textBox2.Text = textBox2.Text + c;
+                pom10++;
             }
-            else textBox1.Text = textBox1.Text + c;
+            else
+            {
+                if (pom9 <= 3) textBox1.Text = textBox1.Text + c;
+                pom9++;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             if (button18.Enabled == true)
             {
-                textBox2.Text = textBox2.Text + d;
+                if (pom12 == 1)  textBox2.Text = textBox2.Text + d;
+                pom12++;
             }
-            else textBox1.Text = textBox1.Text + d;
+            else
+            {
+                if (pom11 == 1) textBox1.Text = textBox1.Text + d;
+                pom11++;
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             if (button18.Enabled == true)
             {
-                textBox2.Text = textBox2.Text + m;
+                if (pom14 <= 3) textBox2.Text = textBox2.Text + m;
+                pom14++;
             }
-            else textBox1.Text = textBox1.Text + m;
+            else
+            {
+                if (pom13 <= 3) textBox1.Text = textBox1.Text + m;
+                pom13++;
+            }
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
             button18.Enabled = true;
+            br1 = rti(textBox1.Text);
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -154,6 +165,7 @@ namespace WindowsFormsApplication1
             button12.Enabled = true;
             button13.Enabled = true;
             button14.Enabled = true;
+            br2 = rti(textBox2.Text);
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -179,6 +191,20 @@ namespace WindowsFormsApplication1
             button14.Enabled = false;
             button18.Enabled = false;
             button15.Enabled = true;
+            pom1 = 1;
+            pom2 = 1;
+            pom3 = 1;
+            pom4 = 1;
+            pom5 = 1;
+            pom6 = 1;
+            pom7 = 1;
+            pom8 = 1;
+            pom9 = 1;
+            pom10 = 1;
+            pom11 = 1;
+            pom12 = 1;
+            pom13 = 1;
+            pom14 = 1;
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -202,14 +228,17 @@ namespace WindowsFormsApplication1
                 button18.Enabled = false;
                 button15.Enabled = true;
             }
-            else textBox3.Text = Convert.ToString(res);
+            else
+            {
+
+            }
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             res = br1 - br2;
             textBox3.Text = Convert.ToString(res);
-            if (Convert.ToInt32(textBox3.Text) > 3999)
+            if (Convert.ToInt32(textBox3.Text) > 3999 || Convert.ToInt32(textBox3.Text) < 0)
             {
                 textBox1.Text = "";
                 textBox2.Text = "";
@@ -221,12 +250,10 @@ namespace WindowsFormsApplication1
                 button18.Enabled = false;
                 button15.Enabled = true;
             }
-            else if (Convert.ToInt32(textBox3.Text) < 0)
+            else
             {
-                res = br2 - br1;
-                textBox3.Text = "-" + Convert.ToString(res);
+
             }
-            else textBox3.Text = Convert.ToString(res);
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -267,13 +294,13 @@ namespace WindowsFormsApplication1
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            i = "I";
-            v = "V";
-            x = "X";
-            l = "L";
-            c = "C";
-            d = "D";
-            m = "M";
+            i = 'I';
+            v = 'V';
+            x = 'X';
+            l = 'L';
+            c = 'C';
+            d = 'D';
+            m = 'M';
             ibr = 1;
             vbr = 5;
             xbr = 10;
@@ -288,6 +315,39 @@ namespace WindowsFormsApplication1
             pom5 = 1;
             pom6 = 1;
             pom7 = 1;
+        }
+        public int prebaci(char t)
+        {
+            int n;
+            if (t == i) return n = ibr;
+            else if (t == v) return n = vbr;
+            else if (t == x) return n = xbr;
+            else if (t == l) return n = lbr;
+            else if (t == c) return n = cbr;
+            else if (t == d) return n = dbr;
+            else if (t == m) return n = mbr;
+            else return 0;
+        }
+        public int rti(string s)
+        {
+            int sum = 0;
+            int num;
+            int pom;
+            for (int i = 0; i < s.Length; i++)
+            {
+                char trenutni = s[i];
+                num = prebaci(trenutni);
+                pom = prebaci(s[(i + 1) % s.Length]);
+                if ((i + 1) < s.Length && pom > num) sum -= num;
+                else sum += num;
+            }
+            return sum;
+        }
+        public string itr(int n)
+        {
+            string res = "";
+
+            return res;
         }
     }
 }
