@@ -22,5 +22,16 @@ namespace WindowsFormsApplication1
             Form2 f = new Form2();
             f.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form3 f = new Form3();
+            f.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

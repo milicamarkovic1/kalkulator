@@ -155,7 +155,7 @@ namespace WindowsFormsApplication1
         private void button17_Click(object sender, EventArgs e)
         {
             button18.Enabled = true;
-            br1 = rti(textBox1.Text);
+            //br1 = rti(textBox1.Text);
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace WindowsFormsApplication1
             button12.Enabled = true;
             button13.Enabled = true;
             button14.Enabled = true;
-            br2 = rti(textBox2.Text);
+            //br2 = rti(textBox2.Text);
         }
 
         private void button15_Click(object sender, EventArgs e)

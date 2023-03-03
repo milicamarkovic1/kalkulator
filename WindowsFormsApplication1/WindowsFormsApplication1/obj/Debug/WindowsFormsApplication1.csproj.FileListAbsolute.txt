@@ -18,3 +18,5 @@ C:\Users\Ucenik\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsForm
 C:\Users\Ucenik\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form2.resources
 C:\Users\Ucenik\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Ucenik\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\Ucenik\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form3.resources
+C:\Users\Ucenik\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form4.resources
