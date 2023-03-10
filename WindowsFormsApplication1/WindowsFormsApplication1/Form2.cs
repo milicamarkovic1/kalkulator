@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace WindowsFormsApplication1
 {
@@ -21,7 +22,6 @@ namespace WindowsFormsApplication1
         public int br2;
         public int res;
         public int brojac;
-        public string res2;
         public int ibr;
         public int vbr;
         public int xbr;
@@ -56,53 +56,105 @@ namespace WindowsFormsApplication1
                 MessageBoxButtons dugme = MessageBoxButtons.OK;
                 DialogResult rez;
                 rez = MessageBox.Show(p, naslov, dugme);
-                if (rez == System.Windows.Forms.DialogResult.OK) this.Close(); //stavi {} i upisi da textboxovi budu prazni
+                if (rez == System.Windows.Forms.DialogResult.OK)
+                {
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    this.Close();
+                }
             }
             else
             {
-                //int r=itr(res); textBox3.text=convert.tostring(r);
-                textBox3.Text = Convert.ToString(res);
+                string r = itr(Convert.ToInt32(res));
+                textBox3.Text = r;
             }
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
+            string x = textBox1.Text.ToUpper();
+            string y = textBox2.Text.ToUpper();
+            br1 = rti(x);
+            br2 = rti(y);
             res = br1 - br2;
-            textBox3.Text = Convert.ToString(res);
-            if (Convert.ToInt32(textBox3.Text) > 3999 || Convert.ToInt32(textBox3.Text) < 0)
+            if (res < 0)
             {
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox3.Text = "";
+                string p = "Rezultat je manji od 0! Unesite druge brojeve.";
+                string naslov = "Greska u unosu";
+                MessageBoxButtons dugme = MessageBoxButtons.OK;
+                DialogResult rez;
+                rez = MessageBox.Show(p, naslov, dugme);
+                if (rez == System.Windows.Forms.DialogResult.OK)
+                {
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    this.Close();
+                }
             }
             else
             {
-
+                string r = itr(Convert.ToInt32(res));
+                textBox3.Text = r;
             }
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
+            string x = textBox1.Text.ToUpper();
+            string y = textBox2.Text.ToUpper();
+            br1 = rti(x);
+            br2 = rti(y);
             res = br1 * br2;
-            if (Convert.ToInt32(textBox3.Text) > 3999)
+            if (res > 3999)
             {
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox3.Text = "";
+                string p = "Rezultat je veci od 3999! Unesite druge brojeve.";
+                string naslov = "Greska u unosu";
+                MessageBoxButtons dugme = MessageBoxButtons.OK;
+                DialogResult rez;
+                rez = MessageBox.Show(p, naslov, dugme);
+                if (rez == System.Windows.Forms.DialogResult.OK)
+                {
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    this.Close();
+                }
             }
-            else textBox3.Text = Convert.ToString(res);
+            else
+            {
+                string r = itr(Convert.ToInt32(res));
+                textBox3.Text = r;
+            }
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            res = br1 / br2;
-            if (Convert.ToInt32(textBox3.Text) > 3999)
+            if (textBox1.Text != "")
             {
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox3.Text = "";
+                string x = textBox1.Text.ToUpper();
+                string y = textBox2.Text.ToUpper();
+                br1 = rti(x);
+                br2 = rti(y);
+                res = br1 / br2;
+                if (res > 3999 || res < 0)
+                {
+                    string p = "Rezultat je veci od 3999! Unesite druge brojeve.";
+                    string naslov = "Greska u unosu";
+                    MessageBoxButtons dugme = MessageBoxButtons.OK;
+                    DialogResult rez;
+                    rez = MessageBox.Show(p, naslov, dugme);
+                    if (rez == System.Windows.Forms.DialogResult.OK)
+                    {
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    string r = itr(Convert.ToInt32(res));
+                    textBox3.Text = r;
+                }
             }
-            else textBox3.Text = Convert.ToString(res);
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -139,6 +191,7 @@ namespace WindowsFormsApplication1
             int sum = 0;
             int num;
             int pom;
+            bool pr = provera(s);
             for (int i = 0; i < s.Length; i++)
             {
                 char trenutni = s[i];
@@ -147,13 +200,44 @@ namespace WindowsFormsApplication1
                 if ((i + 1) < s.Length && pom > num) sum -= num;
                 else sum += num;
             }
+            if (sum > 3999 || pr == false)
+            {
+                string p = "Ovaj broj se ne moze zapisati rimskim ciframa! Pokusajte ponovo.";
+                string naslov = "Greska u unosu";
+                MessageBoxButtons dugme = MessageBoxButtons.OK;
+                DialogResult rez;
+                rez = MessageBox.Show(p, naslov, dugme);
+                if (rez == System.Windows.Forms.DialogResult.OK) this.Close();
+                return 0;
+            }
             return sum;
         }
         public string itr(int n)
         {
-            string res = "";
-
-            return res;
+            string[] sym = { "MMM", "MM", "M", "CM", "DCCC", "DCC", "DC", "D", "CD", "CCC", "CC", "C", "XC", "LXXX", "LXX", "LX", "L", "XL", "XXX", "XX", "X", "IX", "VIII", "VII", "VI", "V", "IV", "III", "II", "I" };
+            int[] br = { 3000, 2000, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            var s = new StringBuilder();
+            int pom = 0;
+            while (n != 0)
+            {
+                if (n >= br[pom])
+                {
+                    n -= br[pom];
+                    s.Append(sym[pom]);
+                }
+                else
+                {
+                    pom++;
+                }
+            }
+            return s.ToString();
+        }
+        public bool provera(string s)
+        {
+            string str = @"^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$";
+            Regex re = new Regex(str);
+            if (re.IsMatch(s)) return true;
+            return false;
         }
     }
 }
