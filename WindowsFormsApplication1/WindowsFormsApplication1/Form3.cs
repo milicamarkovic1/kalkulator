@@ -64,5 +64,10 @@ namespace WindowsFormsApplication1
             kompleksni b = new kompleksni(o, p);
             textBox5.Text = kompleksni.podeli(a, b);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

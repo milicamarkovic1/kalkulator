@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1
                 {
                     textBox1.Text = "";
                     textBox2.Text = "";
-                    this.Close();
+                    textBox3.Text = "";
                 }
             }
             else
@@ -88,7 +88,7 @@ namespace WindowsFormsApplication1
                 {
                     textBox1.Text = "";
                     textBox2.Text = "";
-                    this.Close();
+                    textBox3.Text = "";
                 }
             }
             else
@@ -116,7 +116,7 @@ namespace WindowsFormsApplication1
                 {
                     textBox1.Text = "";
                     textBox2.Text = "";
-                    this.Close();
+                    textBox3.Text = "";
                 }
             }
             else
@@ -146,7 +146,7 @@ namespace WindowsFormsApplication1
                     {
                         textBox1.Text = "";
                         textBox2.Text = "";
-                        this.Close();
+                        textBox3.Text = "";
                     }
                 }
                 else
@@ -207,7 +207,6 @@ namespace WindowsFormsApplication1
                 MessageBoxButtons dugme = MessageBoxButtons.OK;
                 DialogResult rez;
                 rez = MessageBox.Show(p, naslov, dugme);
-                if (rez == System.Windows.Forms.DialogResult.OK) this.Close();
                 return 0;
             }
             return sum;

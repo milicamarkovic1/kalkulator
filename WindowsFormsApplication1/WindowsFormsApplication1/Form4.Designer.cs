@@ -31,7 +31,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button19 = new System.Windows.Forms.Button();
@@ -39,6 +38,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox3
@@ -64,15 +64,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(260, 20);
             this.textBox2.TabIndex = 33;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Drugi broj";
             // 
             // textBox1
             // 
@@ -102,7 +93,6 @@
             // 
             // button14
             // 
-            this.button14.Enabled = false;
             this.button14.Location = new System.Drawing.Point(216, 240);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(127, 45);
@@ -112,7 +102,6 @@
             // 
             // button13
             // 
-            this.button13.Enabled = false;
             this.button13.Location = new System.Drawing.Point(216, 189);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(127, 45);
@@ -122,7 +111,6 @@
             // 
             // button12
             // 
-            this.button12.Enabled = false;
             this.button12.Location = new System.Drawing.Point(83, 240);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(127, 45);
@@ -132,13 +120,22 @@
             // 
             // button11
             // 
-            this.button11.Enabled = false;
             this.button11.Location = new System.Drawing.Point(83, 189);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(127, 45);
             this.button11.TabIndex = 25;
             this.button11.Text = "Saberi";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(80, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Drugi broj";
             // 
             // Form4
             // 
@@ -168,7 +165,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button19;
@@ -176,6 +172,6 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
-
+        private System.Windows.Forms.Label label2;
     }
 }
