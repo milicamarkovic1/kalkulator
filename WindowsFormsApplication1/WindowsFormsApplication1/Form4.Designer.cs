@@ -99,6 +99,7 @@
             this.button14.TabIndex = 28;
             this.button14.Text = "Podeli";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -108,6 +109,7 @@
             this.button13.TabIndex = 27;
             this.button13.Text = "Pomnozi";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -117,6 +119,7 @@
             this.button12.TabIndex = 26;
             this.button12.Text = "Oduzmi";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
