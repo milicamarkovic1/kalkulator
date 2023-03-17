@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
@@ -54,8 +55,20 @@ namespace WindowsFormsApplication1
             double a = x.realni * y.realni + x.imaginarni * y.imaginarni;
             double b = x.realni * (-y.imaginarni) + x.realni * y.realni;
             double c = x.realni * x.realni - y.imaginarni * y.imaginarni;
-            k.realni = a / c;
-            k.imaginarni = b / c;
+            if (a == 0 || b == 0 || c == 0)
+            {
+                string p = "Ne moze se deliti nulom! Unesite druge brojeve.";
+                string naslov = "Greska u unosu";
+                MessageBoxButtons dugme = MessageBoxButtons.OK;
+                DialogResult rez;
+                rez = MessageBox.Show(p, naslov, dugme);
+                return "0";
+            }
+            else
+            {
+                k.realni = a / c;
+                k.imaginarni = b / c;
+            }
             return k.toString();
         }
     }
