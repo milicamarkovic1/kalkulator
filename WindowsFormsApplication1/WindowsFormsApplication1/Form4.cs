@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Numerics;
+using Singulink.Numerics;
 using Singulink.Numerics.BigDecimal;
 
 namespace WindowsFormsApplication1
@@ -312,34 +313,9 @@ namespace WindowsFormsApplication1
         }
         public static string podeli(string s1, string s2, int br)
         {
-            try
-            {
-                int broj = br;
-                BigInteger d1 = BigInteger.Parse(s1.Replace(".", ""));
-                BigInteger d2 = BigInteger.Parse(s2.Replace(".", ""));
-                BigInteger rez = BigInteger.Divide(d1, d2);
-                BigInteger ostatak = BigInteger.Remainder(d1, d2);
-                string rezString = rez.ToString();
-                string ostatakString = ostatak.ToString().PadLeft(broj, '0');
-                string tacka = ".";
-                if (broj > 0)
-                {
-                    rezString += tacka;
-                    for (int i = 0; i < broj; i++)
-                    {
-                        ostatak *= 10;
-                        BigInteger cifra = BigInteger.Divide(ostatak, d2);
-                        rezString += cifra.ToString();
-                        ostatak = BigInteger.Remainder(ostatak, d2);
-                    }
-                }
-                return rezString;
-            }
-            catch (System.DivideByZeroException)
-            {
-                MessageBox.Show("Ne sme se deliti nulom.");
-                return string.Empty;
-            }
+            BigDecimal x = BigDecimal.Parse(s1);
+            BigDecimal y = BigDecimal.Parse(s2);
+            return BigDecimal.Divide(x, y, 20).ToString();
         }
         private void button11_Click(object sender, EventArgs e)
         {

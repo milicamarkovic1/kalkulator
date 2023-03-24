@@ -33,3 +33,5 @@ C:\Users\WIN10_20H2_64UE\OneDrive\Documents\GitHub\kalkulator\WindowsFormsApplic
 C:\Users\WIN10_20H2_64UE\OneDrive\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
 C:\Users\WIN10_20H2_64UE\OneDrive\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\WIN10_20H2_64UE\OneDrive\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Ucenik\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.AssemblyReference.cache
+C:\Users\Ucenik\Documents\GitHub\kalkulator\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
