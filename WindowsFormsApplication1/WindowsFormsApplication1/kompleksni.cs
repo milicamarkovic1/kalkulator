@@ -53,8 +53,8 @@ namespace WindowsFormsApplication1
         {
             kompleksni k = new kompleksni();
             double a = x.realni * y.realni + x.imaginarni * y.imaginarni;
-            double b = x.realni * (-y.imaginarni) + x.realni * y.realni;
-            double c = x.realni * x.realni - y.imaginarni * y.imaginarni;
+            double b = x.imaginarni * y.realni - x.realni * y.imaginarni;
+            double c = y.realni * y.realni - y.imaginarni * y.imaginarni;
             if (a == 0 || b == 0 || c == 0)
             {
                 string p = "Ne moze se deliti nulom! Unesite druge brojeve.";
