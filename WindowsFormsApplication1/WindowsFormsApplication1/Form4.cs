@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Numerics;
 using Singulink.Numerics;
-using Singulink.Numerics.BigDecimal;
+using static Singulink.Numerics.BigDecimal;
 
 namespace WindowsFormsApplication1
 {
@@ -31,14 +31,14 @@ namespace WindowsFormsApplication1
             int raz = Math.Abs(a - b);
             if (a < b)
             {
-                for (int i=0; i<raz; i++)
+                for (var i=0; i<raz; i++)
                 {
                     x.Insert(0, 0);
                 }
             }
             else
             {
-                for (int i = 0; i < raz; i++)
+                for (var i = 0; i < raz; i++)
                 {
                     y.Insert(0, 0);
                 }
@@ -52,14 +52,14 @@ namespace WindowsFormsApplication1
             int raz = Math.Abs(a - b);
             if (a < b)
             {
-                for (int i = 0; i < raz; i++)
+                for (var i = 0; i < raz; i++)
                 {
                     x.Add(0);
                 }
             }
             else
             {
-                for (int i = 0; i < raz; i++)
+                for (var i = 0; i < raz; i++)
                 {
                     y.Add(0);
                 }
@@ -315,7 +315,7 @@ namespace WindowsFormsApplication1
         {
             BigDecimal x = BigDecimal.Parse(s1);
             BigDecimal y = BigDecimal.Parse(s2);
-            return BigDecimal.Divide(x, y, 20).ToString();
+            return BigDecimal.Divide(x, y, 50).ToString();
         }
         private void button11_Click(object sender, EventArgs e)
         {

@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Singulink.Numerics.BigIntegerExtensions</name>
+    </assembly>
+    <members>
+        <member name="T:Singulink.Numerics.BigIntegerExtensions">
+            <summary>
+            Provides useful extension methods for <see cref="T:System.Numerics.BigInteger"/> values.
+            </summary>
+            <content>
+            Enhanced division implementation for BigInteger.
+            </content>
+        </member>
+        <member name="P:Singulink.Numerics.BigIntegerExtensions.OptimizationsEnabled">
+            <summary>
+            Gets a value indicating whether optimizations that depend on internal BigInteger structure are enabled.
+            </summary>
+            <remarks>
+            Optimizations for this version of the library are enabled as long as the .NET runtime version is less than or equal to .NET 7.x and the BigInteger
+            field structure matches what is expected for the current runtime. A warning is emitted to the debug console and optimizations are disabled if this
+            library runs on newer runtimes to prevent incorrect behavior if the implementation of BigInteger changes. A new version of the library will be
+            released with each major .NET release to safely enable optimizations on newer runtimes.
+            </remarks>
+        </member>
+        <member name="M:Singulink.Numerics.BigIntegerExtensions.CountDigits(System.Numerics.BigInteger)">
+            <summary>
+            Calculates the number of base 10 digits in the value. Zero values return 1.
+            </summary>
+        </member>
+        <member name="M:Singulink.Numerics.BigIntegerExtensions.CountDigitsAndTrailingZeros(System.Numerics.BigInteger)">
+            <summary>
+            Calculates the number of base 10 digits and trailing zeros in the value. Zero values return 1 digit and 0 trailing zeros.
+            </summary>
+        </member>
+        <member name="M:Singulink.Numerics.BigIntegerExtensions.Divide(System.Numerics.BigInteger,System.Numerics.BigInteger,Singulink.Numerics.RoundingMode)">
+            <summary>
+            Divides two <see cref="T:System.Numerics.BigInteger"/> values and uses the specified rounding mode for any fractional component of the result.
+            </summary>
+        </member>
+        <member name="T:Singulink.Numerics.BigIntegerPowCache">
+            <summary>
+            Provides caching of <see cref="T:System.Numerics.BigInteger"/> powers for a given basis (from 3 to 10). Exponents that are bigger than the size of the cache are
+            calculated each time they are requested.
+            </summary>
+            <remarks>
+            <para>
+            Caching powers of 2 is not supported - use left/right shifting for a more memory and CPU efficient means of multiplying/dividing values by powers of
+            2.</para>
+            <para>
+            You can safely get a cache instance without risking using large amounts of unnecessary memory in the event that the cache is not needed since it is
+            empty when it is first created. The cache is populated on the first request for a value. Only 1 instance of a cache exists for a given basis.</para>
+            <para>
+            When an exponent is requested that is larger than the current cache size, the cache is expanded by a minimum of 64 entries or as needed to ensure it
+            includes the requested exponent. This involves creating a new array to hold the expanded cache, copying previously cached values over, and calculating
+            all the rest of the missing values. Since caching results of a power function is already exponential in nature, a linear approach is used to
+            expand the size of the cache instead of doubling its size.</para>
+            </remarks>
+        </member>
+        <member name="M:Singulink.Numerics.BigIntegerPowCache.GetCache(System.Int32,System.Int32)">
+            <summary>
+            If there is an existing cache for the given basis then get it and increase its maximum size to meet the specified required max size, otherwise
+            create a new cache with the given parameters.
+            </summary>
+            <param name="basis">A value between 3 and 10 that specifies the basis of the exponent.</param>
+            <param name="requiredMaxSize">The required maximum size of the cache. The maximum cached exponent is one less than this size. Caches never have a
+            smaller max size than 1024.</param>
+            <returns>A cache for the given basis that meets or exceeds the required max size.</returns>
+        </member>
+        <member name="P:Singulink.Numerics.BigIntegerPowCache.Basis">
+            <summary>
+            Gets the base of the exponent for this cache.
+            </summary>
+        </member>
+        <member name="P:Singulink.Numerics.BigIntegerPowCache.MaxSize">
+            <summary>
+            Gets the maximum cache size. The largest cached exponent is one less than this value.
+            </summary>
+        </member>
+        <member name="M:Singulink.Numerics.BigIntegerPowCache.Get(System.Int32)">
+            <summary>
+            Gets the cache's basis raised to the power of the given exponent value.
+            </summary>
+        </member>
+        <member name="T:Singulink.Numerics.RoundingMode">
+            <summary>
+            Specifies how mathematical rounding should process a number.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.MidpointToEven">
+            <summary>
+            Round to nearest mode: when a number is halfway between two others, it is rounded toward the nearest even number.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.MidpointAwayFromZero">
+            <summary>
+            Round to nearest mode: when a number is halfway between two others, it is rounded toward the nearest number that is away from zero.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.ToZero">
+            <summary>
+            Directed mode: the number is rounded toward zero, with the result closest to and no greater in magnitude than the infinitely precise result.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.ToNegativeInfinity">
+            <summary>
+            Directed mode: the number is rounded down, with the result closest to and no greater than the infinitely precise result.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.ToPositiveInfinity">
+            <summary>
+            Directed mode: the number is rounded up, with the result closest to and no less than the infinitely precise result.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.AwayFromZero">
+            <summary>
+            Directed mode: the number is rounded toward the nearest number that is away from zero.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.MidpointToZero">
+            <summary>
+            Round to nearest mode: when a number is halfway between two others, it is rounded toward zero, with the result closest to and no greater in
+            magnitude than the infinitely precise result.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.MidpointToNegativeInfinity">
+            <summary>
+            Round to nearest mode: when a number is halfway between two others, it is rounded down, with the result closest to and no greater than the
+            infinitely precise result.
+            </summary>
+        </member>
+        <member name="F:Singulink.Numerics.RoundingMode.MidpointToPositiveInfinity">
+            <summary>
+            Round to nearest mode: when a number is halfway between two others, the number is rounded up, with the result closest to and no less than the
+            infinitely precise result.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -21,41 +21,34 @@ namespace WindowsFormsApplication1
             realni = r;
             imaginarni = i;
         }
-        public string toString()
-        {
-            char pom;
-            if (Math.Sign(imaginarni) == 1) pom = '+';
-            else pom = '-';
-            return Convert.ToString(realni) + pom + Convert.ToString(imaginarni) + 'i';
-        }
-        public static string saberi(kompleksni x, kompleksni y)
+        public static kompleksni saberi(kompleksni x, kompleksni y)
         {
             kompleksni k = new kompleksni();
             k.realni = x.realni + y.realni;
             k.imaginarni = x.imaginarni + y.imaginarni;
-            return k.toString();
+            return k;
         }
-        public static string oduzmi(kompleksni x, kompleksni y)
+        public static kompleksni oduzmi(kompleksni x, kompleksni y)
         {
             kompleksni k = new kompleksni();
             k.realni = x.realni - y.realni;
             k.imaginarni = x.imaginarni - y.imaginarni;
-            return k.toString();
+            return k;
         }
-        public static string pomnozi(kompleksni x, kompleksni y)
+        public static kompleksni pomnozi(kompleksni x, kompleksni y)
         {
             kompleksni k = new kompleksni();
             k.realni = x.realni * y.realni - x.imaginarni * y.imaginarni;
             k.imaginarni = x.realni * y.imaginarni + x.imaginarni * y.realni;
-            return k.toString();
+            return k;
         }
-        public static string podeli(kompleksni x, kompleksni y)
+        public static kompleksni podeli(kompleksni x, kompleksni y)
         {
             kompleksni k = new kompleksni();
             double a = x.realni * y.realni + x.imaginarni * y.imaginarni;
             double b = x.imaginarni * y.realni - x.realni * y.imaginarni;
-            double c = y.realni * y.realni - y.imaginarni * y.imaginarni;
-            if (a == 0 || b == 0 || c == 0)
+            double c = y.realni * y.realni + y.imaginarni * y.imaginarni;
+            /*if (a == 0 || b == 0 || c == 0)
             {
                 string p = "Ne moze se deliti nulom! Unesite druge brojeve.";
                 string naslov = "Greska u unosu";
@@ -65,11 +58,12 @@ namespace WindowsFormsApplication1
                 return "0";
             }
             else
+            */
             {
                 k.realni = a / c;
                 k.imaginarni = b / c;
             }
-            return k.toString();
+            return k;
         }
     }
 }
